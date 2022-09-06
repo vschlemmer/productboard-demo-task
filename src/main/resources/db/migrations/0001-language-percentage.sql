@@ -5,5 +5,5 @@ CREATE TABLE language_percentage
 (
     id            BIGSERIAL PRIMARY KEY,
     language_name TEXT UNIQUE NOT NULL,
-    percentage    DECIMAL(2, 1)
+    percentage    DECIMAL(2, 1) NOT NULL
 );
