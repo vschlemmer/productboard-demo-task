@@ -1,7 +1,7 @@
 package cz.productboard.hire.schlemmer.languagepercentage.api
 
 import com.fasterxml.jackson.databind.annotation.JsonSerialize
-import cz.productboard.hire.schlemmer.languagepercentage.domain.LanguagePercentageEntity
+import cz.productboard.hire.schlemmer.languagepercentage.domain.language.LanguagePercentageEntity
 
 @JsonSerialize(using = LanguagePercentageSerializer::class)
 data class LanguagePercentagesDto(

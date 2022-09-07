@@ -1,4 +1,4 @@
-package cz.productboard.hire.schlemmer.languagepercentage.domain
+package cz.productboard.hire.schlemmer.languagepercentage.domain.language
 
 import java.math.BigDecimal
 import javax.persistence.Column

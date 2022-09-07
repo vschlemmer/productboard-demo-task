@@ -1,12 +1,9 @@
 package cz.productboard.hire.schlemmer.languagepercentage.api
 
-import cz.productboard.hire.schlemmer.languagepercentage.domain.CreateLanguagePercentageDto
-import cz.productboard.hire.schlemmer.languagepercentage.domain.LanguagePercentageService
-import javax.validation.constraints.NotNull
+import cz.productboard.hire.schlemmer.languagepercentage.domain.language.LanguagePercentageService
 import org.springframework.http.MediaType
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 
@@ -23,7 +20,8 @@ class LanguagePercentageController(
     fun getAll(): LanguagePercentagesDto =
         languagePercentageService.getAll()
 
-    @PostMapping()
-    fun create(@RequestBody @NotNull createLanguagePercentageDto: CreateLanguagePercentageDto) =
-        languagePercentageService.save(createLanguagePercentageDto)
+    @PostMapping("/reload-from-github")
+    fun reloadLanguagesFromGithub() {
+        languagePercentageService.reloadLanguagesFromGithub()
+    }
 }
