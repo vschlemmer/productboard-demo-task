@@ -13,12 +13,13 @@ import org.springframework.transaction.annotation.Transactional
 private val log = KotlinLogging.logger {}
 
 @Service
-@Transactional
+@Transactional(readOnly = true)
 class LanguagePercentageService(
     private val languagePercentageRepository: LanguagePercentageRepository,
     private val githubFacade: GithubFacade
 ) {
 
+    @Transactional
     fun save(createLanguagePercentageDto: CreateLanguagePercentageDto) =
         languagePercentageRepository.findByLanguageName(createLanguagePercentageDto.languageName)?.also {
             it.percentage = createLanguagePercentageDto.percentage
@@ -33,6 +34,7 @@ class LanguagePercentageService(
     fun getAll() =
         LanguagePercentagesDto(languagePercentageRepository.findAll())
 
+    @Transactional
     fun reloadLanguagesFromGithub() {
         val languagesPercentages = calculateLanguagesPercentages(getLanguagesWithCounts())
 
