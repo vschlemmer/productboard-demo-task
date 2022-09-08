@@ -53,7 +53,7 @@ class LanguagePercentageService(
             .groupingBy { it }
             .eachCount()
 
-    private fun calculateLanguagesPercentages(languagesWithCounts: Map<String, Int>): Map<String, BigDecimal> {
+    fun calculateLanguagesPercentages(languagesWithCounts: Map<String, Int>): Map<String, BigDecimal> {
         val totalCounts = BigDecimal(languagesWithCounts.values.sum())
         return languagesWithCounts.mapValues {
             BigDecimal(it.value).divide(totalCounts, PERCENTAGE_SCALE, RoundingMode.HALF_UP)

@@ -29,6 +29,10 @@ dependencies {
     runtimeOnly("org.postgresql:postgresql")
 
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
+    testImplementation("io.mockk:mockk:1.12.7")
+    testImplementation("io.kotest:kotest-runner-junit5:5.4.2")
+    testImplementation("io.kotest:kotest-assertions-core:5.4.2")
+    testImplementation("io.kotest:kotest-extensions-spring:4.4.3")
 }
 
 tasks.withType<KotlinCompile> {
@@ -40,4 +44,5 @@ tasks.withType<KotlinCompile> {
 
 tasks.withType<Test> {
 	useJUnitPlatform()
+    testLogging.showStandardStreams = true
 }
